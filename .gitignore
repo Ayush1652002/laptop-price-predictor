@@ -3,3 +3,5 @@ __pycache__/
 .ipynb_checkpoints/
 .env
 *.pyc
+node_modules/
+dist/
