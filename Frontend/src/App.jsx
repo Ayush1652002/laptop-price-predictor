@@ -16,17 +16,15 @@ const types = [
 ];
 
 const cpus = [
-  "Intel Core i3",
-  "Intel Core i5",
+  "Intel Core Ultra",
   "Intel Core i7",
-  "Intel Core i9",
-  "AMD Ryzen 3",
-  "AMD Ryzen 5",
+  "Intel Core i5",
+  "Intel Core i3",
   "AMD Ryzen 7",
-  "AMD Ryzen 9",
-  "Intel Core M",
-  "Other Intel Processor",
-  "AMD Processor"
+  "AMD Ryzen 5",
+  "Apple Silicon",
+  "Snapdragon X",
+  "Other"
 ];
 
 const gpus = [
@@ -65,7 +63,7 @@ function App() {
     ips: "Yes",
     screen_size: 15.6,
     resolution: "1920x1080",
-    cpu: "Intel Core i5",
+    cpu: "Intel Core Ultra",
     hdd: 0,
     ssd: 512,
     gpu: "Intel",
@@ -93,7 +91,8 @@ function App() {
     setPrice(null);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/predict", {
+      const API_URL = import.meta.env.VITE_API_URL || "https://laptop-price-predictor-api-jdgr.onrender.com";
+      const response = await fetch(`${API_URL}/predict`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
